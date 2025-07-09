@@ -37,7 +37,7 @@ Multivariate Cluster Analysis (K-Means)
 The results are plotted in the file.
 
 
-Iterpretation of the Cluster Anaysis:
+Interpretation of the Cluster Anaysis:
 
 Cluster 2 — Highest Stroke Rate (0.17029)
 Average Age: 68.2 (oldest)
