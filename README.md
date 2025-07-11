@@ -96,3 +96,12 @@ General Conclusions on Stroke Risk
 
 The high glucose factor was something I was unaware of and is confirmed in this research paper from the NIH
 https://pmc.ncbi.nlm.nih.gov/articles/PMC3329666/
+
+
+Project #2 SQL queries of a relational database for an online digital music store
+
+I only have two queries so far. I made the first one extra complicated so that it would require touching/joning multiple
+tables. The second is a work in progress because I find it rather boring, although I can imagine it being a typical task
+for hounding customers. The files are:
+Chinook_MySql.sql - this builds the database
+Chinook Queries.sql - the queries I have done so far...I'm still a little slow with this stuff until it becomes a bit more natural.
