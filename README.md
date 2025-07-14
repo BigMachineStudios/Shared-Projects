@@ -105,3 +105,33 @@ tables. The second is a work in progress because I find it rather boring, althou
 for hounding customers. The files are:
 Chinook_MySql.sql - this builds the database
 Chinook Queries.sql - the queries I have done so far...I'm still a little slow with this stuff until it becomes a bit more natural.
+
+
+Project #3 Fetch live data from an online crypto coin reporting service and compile the data into a table for analysis and plotting.
+
+This grew out of the desire to try something that worked with live data, combined python and sql, and made use of triggers and/or events.
+The problem made me think about polling vs interupt driven system communications and the tade-offs of each. Interupts being much more efficient,
+but bring the complexity of dealing with ovelapping events. However, in the scope of this project, such an occurance would not be likely.
+
+This will use python as the framework for pulling the data in, pandas to structure the data, and sqlalchemy to fascilitate running SQL
+within the python script. The source for the data is yahoo finance. I'm currently using crypto data rather than stocks because they trade 24/7.
+
+The current plan is as follows:
+1) Establish the SQLAlchemy engine connection to MySQL on my localhost.
+2) Fetch the current yfinance price and volume data for the day up to that point in time for one or more crypto coins.
+3) Create a pandas dataframe to load the data into.
+4) Use the SQLAlchemy engine to run SQL analyis operations.
+5) Continue to fetch live data from yfinance at some predetermined rate (30s to a minute)
+6) Append the live data into the table.
+7) Create an SQL trigger that runs an updated analysis utilizing the new data (most likely a weighted moving average and/or VWAP.
+8) Create a graph of the data.
+
+Some of this working already in a Jupyter notebook and I'm working through issues getting the SQLAlchemy connection to connect.
+I read a few things regarding avoiding the use of SQL triggers and I am investigating that further.
+I have installed Docker on my system as it may help with these sorts of tasks. I need to due a system reboot to complete the install
+but I'm not prepared to take that action yet (many things I don't want to shut down right now).
+With a little luck, I'll have all this stuff figured out within the next 24hrs. It's a lot to take taske in an all very new to me.
+But I shall persevere!!!
+
+
+
