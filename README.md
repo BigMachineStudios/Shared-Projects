@@ -73,14 +73,15 @@ This grew out of the desire to try something that worked with live data, combine
 This will use python as the framework for pulling the data in, pandas to structure the data, and SQLAlchemy to facilitate running SQL within the python script. The source for the data is yahoo finance. I'm currently using crypto data rather than stocks because they trade 24/7.
 
 The current plan is as follows:
-    1. Establish the SQLAlchemy engine connection to MySQL on my localhost.
-    2. Fetch the current yfinance price and volume data for the day up to that point in time for one or more crypto coins.
-    3. Create a pandas dataframe to load the data into.
-    4. Use the SQLAlchemy engine to run SQL analysis operations.
-    5. Continue to fetch live data from yfinance at some predetermined rate (30s to a minute)
-    6. Append the live data into the table.
-    7. Create an SQL event or trigger that runs an updated analysis utilizing the new data (most likely a weighted moving average and/or VWAP.
-    8. Create a graph of the data.
+
+1. Establish the SQLAlchemy engine connection to MySQL on my localhost.
+2. Fetch the current yfinance price and volume data for the day up to that point in time for one or more crypto coins.
+3. Create a pandas dataframe to load the data into.
+4. Use the SQLAlchemy engine to run SQL analysis operations.
+5. Continue to fetch live data from yfinance at some predetermined rate (30s to a minute)
+6. Append the live data into the table.
+7. Create an SQL event or trigger that runs an updated analysis utilizing the new data (most likely a weighted moving average and/or VWAP.
+8. Create a graph of the data.
     
 Some of this working already in a Jupyter notebook and I'm working through issues getting the SQLAlchemy connection to connect. I read a few things regarding avoiding the use of SQL triggers and I am investigating that further. I have installed Docker on my system as it may help with these sorts of tasks. I need to due a system reboot to complete the install but I'm not prepared to take that action yet (many things I don't want to shut down right now). With a little luck, I'll have all this stuff figured out within the next 24hrs. It's a lot to take on and it’s all very new to me. But I shall persevere!!!
 
