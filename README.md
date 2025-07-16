@@ -78,12 +78,12 @@ The current plan is as follows:
 2. Fetch the current yfinance price and volume data for the day up to that point in time for one or more crypto coins.
 3. Create a pandas dataframe to load the data into.
 4. Use the SQLAlchemy engine to run SQL analysis operations.
-5. Continue to fetch live data from yfinance at some predetermined rate (30s to a minute)
+5. Continue to fetch live data from 'yfinance' at some predetermined rate (30s to a minute)
 6. Append the live data into the table.
-7. Create an SQL event or trigger that runs an updated analysis utilizing the new data (most likely a weighted moving average and/or VWAP.
+7. Create an SQL event or trigger that runs an updated analysis utilizing the new data (most likely a weighted moving average and/or VWAP).
 8. Create a graph of the data.
     
-Some of this working already in a Jupyter notebook and I'm working through issues getting the SQLAlchemy connection to connect. I read a few things regarding avoiding the use of SQL triggers and I am investigating that further. I have installed Docker on my system as it may help with these sorts of tasks. I need to due a system reboot to complete the install but I'm not prepared to take that action yet (many things I don't want to shut down right now). With a little luck, I'll have all this stuff figured out within the next 24hrs. It's a lot to take on and it’s all very new to me. But I shall persevere!!!
+Some of this working already in a Jupyter notebook and I'm working through issues getting the SQLAlchemy connection to connect. I read a few things regarding avoiding the use of SQL triggers and I am investigating that further. I have installed Docker on my system as it may help with these sorts of tasks. I need to do a system reboot to complete the install but I'm not prepared to take that action yet (many things I don't want to shut down right now). With a little luck, I'll have all this stuff figured out soon. It's a lot to take on and it’s all very new to me. But I shall persevere!!!
 
 
 
