@@ -94,3 +94,19 @@ As I progressed through project #3, at numerous points I have realized that my m
 
 With all these changes along the way, it has kept me from completing the code itself. But I am submitting what I have to execute the single fetch in python. Each time this is executed, it adds a new line of price/volume data to the table. SQL will then parse and format the data, as well as perform some additional analysis. I am getting so close I can taste it!
 
+I have uploaded a new version of the Jupyter Notebook that incorporates a cell for fetching an entire block of trade data, rather than waiting for timed repeated fetches over many hours. It has input parameters as defined by 'yfinance'.
+
+In yfinance, the period and interval parameters are used to specify the time range and granularity of historical data downloaded. The period parameter defines the overall duration (e.g., 1 day, 1 month, 1 year), while interval determines the frequency of data points within that period (e.g., 1 minute, 1 hour, 1 day). 
+Period:
+Valid Values: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max. 
+Usage: Specifies the length of time for which you want data (e.g., "1y" for one year). 
+Note: You can also use the start and end parameters to specify a custom date range instead of using period, but it's recommended to avoid using start, end, and period together due to potential issues. 
+Interval:
+Valid Values: 1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo. 
+Usage: Determines the frequency of data points (e.g., "1h" for hourly data, "1d" for daily data). 
+Important Considerations:
+Intraday data (intervals less than 1 day) is only available for the last 60 days. 
+Minute-level data (1m, 2m) is only available for the last 7 days. 
+
+
+There is also the beginnings of a PostgreSQL query file for analyzing the data. It's very much a work in progress. Currently it copies the data to a working table (to keep the original data intact), and then slightly reformats it for ease of use. Then there are queries to compare the price entries to the day's average, and another that calculates the percent gain or loss over time relative to the opening price. Next up will be generating a weighted rolling average and probably VWAP (volume weighted average). More to come.
