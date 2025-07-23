@@ -137,3 +137,69 @@ GROUP BY -- Use GROUP BY to get unique customer emails for the popular track
     c.LastName
 ORDER BY
     c.Email;
+
+
+
+-- Find the artist that was responsible for the most tracks sold in the US
+SELECT
+    ar.name AS "Artist Name",
+    SUM(il.quantity) AS "Total Tracks Sold"
+FROM
+    public.invoice AS i
+INNER JOIN
+    public.invoice_line AS il ON i.invoice_id = il.invoice_id
+INNER JOIN
+    public.track AS t ON il.track_id = t.track_id
+INNER JOIN
+    public.album AS al ON t.album_id = al.album_id
+INNER JOIN
+    public.artist AS ar ON al.artist_id = ar.artist_id
+WHERE
+    i.billing_country = 'USA'
+GROUP BY
+    ar.name
+ORDER BY
+    "Total Tracks Sold" DESC
+LIMIT 1;
+
+
+-- Check to see if NULL data exists in the join of invoice_line, track, and media type tables
+SELECT *
+FROM
+    public.invoice_line AS il
+LEFT JOIN
+    public.track AS t ON il.track_id = t.track_id
+LEFT JOIN
+    public.media_type AS mt ON t.media_type_id = mt.media_type_id
+WHERE il.invoice_line_id IS NULL
+	OR il.invoice_id IS NULL
+	OR il.track_id IS NULL
+	OR il.unit_price IS NULL
+	OR il.quantity IS NULL
+	OR t.track_id IS NULL
+	OR t.name IS NULL
+	OR t.unit_price IS NULL
+	OR t.media_type_id IS NULL
+	OR mt.media_type_id IS NULL
+	OR mt.name IS NULL;
+
+
+-- Calculate the total units and sales for each media type and sort on units sold
+
+SELECT
+    mt.name AS "Media Type",
+	SUM(il.quantity) AS "Units Sold",
+    SUM(il.unit_price * il.quantity) AS "Total Sales"
+FROM
+    public.invoice_line AS il
+LEFT JOIN
+    public.track AS t ON il.track_id = t.track_id
+LEFT JOIN
+    public.media_type AS mt ON t.media_type_id = mt.media_type_id
+GROUP BY
+    mt.name
+ORDER BY
+    "Units Sold" DESC;
+
+
+
