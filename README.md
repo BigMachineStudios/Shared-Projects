@@ -110,3 +110,14 @@ Minute-level data (1m, 2m) is only available for the last 7 days.
 
 
 There is also the beginnings of a PostgreSQL query file for analyzing the data. It's very much a work in progress. Currently it copies the data to a working table (to keep the original data intact), and then slightly reformats it for ease of use. Then there are queries to compare the price entries to the day's average, and another that calculates the percent gain or loss over time relative to the opening price. Next up will be generating a weighted rolling average and probably VWAP (volume weighted average). More to come.
+
+
+7/23/25
+I have been urged to add more relational queries, and thus Chinook Queries.sql has been updated. I would like to add about a dozen relatively simple queries here over the next couple days. To start things off, there are 3 new ones as follows:
+1. Find the artist that was responsible for the most tracks sold in the US
+2. Check to see if NULL data exists in the join of invoice_line, track, and media type tables
+3. Calculate the total units and sales for each media type and sort on units sold
+
+It seems to me that combining 2 and 3 such that it does the NULL check as it performs the data analysis would be good. But perhaps it is more common to do a larger and more thorough cleaning and data check as a separate task prior to all further queries. This would seem more efficient. Either way, more quicky queries to come soon.
+
+
